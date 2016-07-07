@@ -118,6 +118,7 @@ var Game = {
 
     update: function() {
         if (lives <= 0 && score > highScore) {
+        	run++;
             highScore = score;
             game.state.start('HighScore');
         } else if (lives <= 0) {
