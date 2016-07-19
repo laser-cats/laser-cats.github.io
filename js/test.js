@@ -114,23 +114,50 @@ var Game = {
         player.animations.add('float', [0, 2], 1.5, true);
         player.animations.add('hit', [1, 3], 1.5, false);
         player.animations.play('float');
+<<<<<<< HEAD
+
+        //  Load the High Score 
+	highScore = Game.getCookie("Hscore");
+        if (highScore == "") {
+	  highScore = -99999999
+	}	
+=======
+>>>>>>> 743a65112464cf47bcf0d4f760a20ce5bba8e7c1
     },
 
     update: function() {
         if (lives <= 0 && score > highScore) {
         	run++;
+<<<<<<< HEAD
+          highScore = score; 
+	  Game.setCookie("Hscore", highScore, 30);	
+	    game.state.start('HighScore');
+=======
             highScore = score;
             game.state.start('HighScore');
+>>>>>>> 743a65112464cf47bcf0d4f760a20ce5bba8e7c1
         } else if (lives <= 0) {
             run++;
             game.state.start('GameOver');
         }
+<<<<<<< HEAD
+           
+   
+     if (highScore == -99999999) {
+	      // Update the score and lives
+            scoreText.text = "Score: " + score + "   Lives: " + lives;
+	 } else {
+	       scoreText.text = "Score: " + score + "   Lives: " + lives + " High Score: " + Game.getCookie("Hscore"); 
+	 }
+
+=======
         if (run == 0) {
             // Update the score and lives
             scoreText.text = "Score: " + score + "   Lives: " + lives;
         } else {
             scoreText.text = "Score: " + score + "   Lives: " + lives + "   High Score: " + highScore;
         }
+>>>>>>> 743a65112464cf47bcf0d4f760a20ce5bba8e7c1
         // If no buttons are pressed the player is not moving
         player.body.velocity.x = 0;
         player.body.velocity.y = 0;
@@ -221,6 +248,34 @@ var Game = {
 
     },
 
+<<<<<<< HEAD
+
+    setCookie: function(cname,cvalue,exdays) {
+	    var d = new Date();
+	     d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	     var expires = "expires=" + d.toGMTString();
+		        document.cookie = cname+"="+cvalue+"; "+expires;
+  },
+
+
+    getCookie: function(cname) {
+	     var name = cname + "=";
+	     var ca = document.cookie.split(';');
+	     for(var i=0; i<ca.length; i++) {
+			 var c = ca[i];
+		         while (c.charAt(0)==' ') {
+	                          c = c.substring(1);
+			  }
+		         if (c.indexOf(name) == 0) {
+			        return  c.substring(name.length, c.length);
+			  }
+	       }
+		          return "";
+  },
+
+
+=======
+>>>>>>> 743a65112464cf47bcf0d4f760a20ce5bba8e7c1
     fireLaser: function() {
         if (game.time.time > laserTime) {
             laser = lasers.getFirstExists(false);
