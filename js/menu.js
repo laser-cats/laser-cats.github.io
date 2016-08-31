@@ -28,6 +28,11 @@ var Menu = {
         cat = game.add.sprite(game.world.width / 2 - 140, game.world.height / 2 - 200, 'cat');
         cat.animations.add('float');
         cat.animations.play('float', 1, true);
+		game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+		game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+		game.scale.refresh();
+        game.input.onDown.add(goFull, this);
+
     },
 
     update: function() {
@@ -121,5 +126,14 @@ var Menu = {
             m = 0.05;
             l = 0.05;
         }
+    },
+    
+    goFull: function() {
+    	if (game.scale.isFullScreen) {
+        	game.scale.stopFullScreen();
+    	}
+    	else {
+        	game.scale.startFullScreen(false);
+    	}
     }
 };
