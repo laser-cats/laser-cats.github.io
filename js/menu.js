@@ -34,7 +34,14 @@ var Menu = {
     },
     
     gofull: function() {
-    	game.stage.scale.startFullScreen();
+    	if (game.scale.isFullScreen)
+    {
+        game.scale.stopFullScreen();
+    }
+    else
+    {
+        game.scale.startFullScreen(false);
+    }
     },
 
     update: function() {
