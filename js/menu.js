@@ -41,7 +41,6 @@ var Menu = {
     else
     {
     	this.game.scale.setMaximum();
-        this.game.scale.setScreenSize(true);
         this.game.scale.pageAlignVertically = false;
         this.game.scale.pageAlignHorizontally = false;
         game.scale.startFullScreen(false);
