@@ -28,7 +28,7 @@ var Menu = {
         cat = game.add.sprite(game.world.width / 2 - 140, game.world.height / 2 - 200, 'cat');
         cat.animations.add('float');
         cat.animations.play('float', 1, true);
-		game.stage.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+		game.stage.fullScreenScaleMode = Phaser.StageScaleMode.SHOW_ALL;
 		game.input.onDown.add(Menu.gofull, this);
 
     },
