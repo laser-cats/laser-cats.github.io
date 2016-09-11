@@ -29,8 +29,12 @@ var Menu = {
         cat.animations.add('float');
         cat.animations.play('float', 1, true);
 		game.stage.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
-		game.input.onDown.add(goFull, this);
+		game.input.onDown.add(gofull, this);
 
+    },
+    
+    gofull: function() {
+    	game.stage.scale.startFullScreen();
     },
 
     update: function() {
@@ -124,9 +128,5 @@ var Menu = {
             m = 0.05;
             l = 0.05;
         }
-    },
-    
-    goFull: function() {
-    	game.stage.scale.startFullScreen();
     }
 };
